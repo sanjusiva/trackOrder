@@ -1,8 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-/* Importing Bootstrap SCSS file. */
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-
 // body {
 //     font-family: 'Open Sans';
 // }
@@ -383,15 +378,15 @@ body {
     content: "\f00c";
 }
 
- .step.done .step-circle * {
+ .step.done .step-circle * {/*Hiding the number after done*/
     display: none;
 }
 
- .step.done .step-title {
+ .step.done .step-title {/*title colour green after done*/
     color: #199473;
 }
 .step.progress .step-circle {
-    background-color: #199473;
+    background-color: #199473;/*After done circle colour green*/
     border: 2px solid #199473;
     color: #FFFFFF;
 }
@@ -402,14 +397,14 @@ body {
     content: "\f00c";
 }
 
- .step.progress .step-circle * {
+ .step.progress .step-circle * {/*Hiding the number after done*/
     display: none;
 }
 
- .step.progress .step-title {
-    color: #199473;
+ .step.progress .step-title {/*title colour green after done*/
+    color: #102A43;
 }
-.step.successDone .step-title {
+.step.successDone .step-title {/*title style while editing*/
     color: #199473;
     text-decoration: underline;
 }
@@ -418,24 +413,4 @@ body {
     font-size: 0.95rem;
     font-style: italic;
     color: green;
-}
-
-.step.inComplete .step-bar-right {
-    background-color: grey;
-    border-color:  grey;
-    z-index: 3;
-    width: calc(100% - 1rem);
-}
-.step.finalProgress .step-circle {
-    background-color: #9FB3C8;
-    border: 2px solid#9FB3C8;
-    color: #FFFFFF;
-}
-
- .step.finalProgress .step-circle * {
-    display: none;
-}
-
- .step.finalProgress .step-title {
-    color:#9FB3C8;
 }

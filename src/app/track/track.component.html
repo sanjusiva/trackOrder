@@ -1,0 +1,160 @@
+<p>track works!</p>
+<!-- {{ orderTrack[0] | json }}
+{{ orderTrack[1] | json }}
+{{ orderTrack[2] | json }} -->
+
+
+
+<!-- <div class="wrapper" *ngFor="let state of orderTrack">
+  <div class="circle">
+    <mat-progress-bar mode="determinate" [value]="100"></mat-progress-bar>
+
+    <div class="checkMark"></div>
+  </div>
+</div> -->
+
+
+<!-- <div class="wrapper" *ngFor="let state of orderTrack">
+  <div class="circle">
+    <mat-stepper [linear]="false" #stepper>
+      <mat-step>
+        <div class="checkMark"></div>
+        <mat-progress-bar mode="determinate" [value]="100" class="progress"></mat-progress-bar>
+      </mat-step>
+    </mat-stepper>
+  </div>
+</div> -->
+
+
+<!-- <mat-horizontal-stepper *ngFor="let state of orderTrack" class="circle">
+  <mat-step>
+    <h3 class="checkMark"></h3>{{state}}
+  </mat-step>
+
+</mat-horizontal-stepper> -->
+
+<!-- 
+<mat-horizontal-stepper *ngFor="let state of orderTrack" #stepper>
+  <mat-step>
+    <span *ngIf="state.status==='completed'">
+    <mat-icon>check_circle</mat-icon>
+    <sub matStepLabel>{{state.name}}</sub>
+    <sub matStepLabel>{{state.date}}</sub>
+    </span>
+    <span *ngIf="state.status==='in-progress'">
+    <mat-icon>radio_button_unchecked</mat-icon>
+    <sub matStepLabel>{{state.name}}</sub>
+    <sub matStepLabel>{{state.date}}</sub>
+    </span>
+  </mat-step>
+</mat-horizontal-stepper>
+
+
+<br><hr><br>
+<div class="outer-div">
+  <mat-icon>home</mat-icon>
+  <span>Home</span>
+ </div> -->
+
+
+<!-- <div class="stepper-bar" id="stepper" >
+  <div class="step editing done">
+      <div class="step-circle"><span>1</span></div>
+      <div class="step-title">{{orderTrack[0].name}}</div>
+      <div class="step-date">{{orderTrack[0].date}}</div>
+      <div class="step-bar-left"></div>
+      <div class="step-bar-right"></div>
+  </div>
+  <div class="step editing progress">
+      <div class="step-circle"><span>2</span></div>
+      <div class="step-title">{{orderTrack[1].name}}</div>
+      <div class="step-date">{{orderTrack[1].date}}</div>
+      <div class="step-bar-left"></div>
+      <div class="step-bar-right"></div>
+  </div>
+  <div class="step inComplete">
+      <div class="step-circle"><span>3</span></div>
+      <div class="step-title">{{orderTrack[2].name}}</div>
+      <div class="step-date">{{orderTrack[2].date}}</div>
+      <div class="step-bar-left"></div>
+      <div class="step-bar-right"></div>
+  </div>
+ 
+</div> -->
+
+
+<!-- <div class="stepper-bar" id="stepper" >
+  <div [ngClass]="orderTrack[0].status=='completed'?'step editing done':'step inComplete'">
+      <div class="step-circle"><span>1</span></div>
+      <div class="step-title">{{orderTrack[0].name}}</div>
+      <div class="step-date">{{orderTrack[0].date}}</div>
+      <div class="step-bar-left"></div>
+      <div class="step-bar-right"></div>
+  </div>
+  <div [ngClass]="orderTrack[1].status=='completed'?'step editing progress':'step inComplete'">
+      <div class="step-circle"><span>2</span></div>
+      <div class="step-title">{{orderTrack[1].name}}</div>
+      <div class="step-date">{{orderTrack[1].date}}</div>
+      <div class="step-bar-left"></div>
+      <div class="step-bar-right"></div>
+  </div>
+  <div [ngClass]="orderTrack[2].status=='completed'?'step editing progress':'step inComplete'">
+      <div class="step-circle"><span>3</span></div>
+      <div class="step-title">{{orderTrack[2].name}}</div>
+      <div class="step-date">{{orderTrack[2].date}}</div>
+      <div class="step-bar-left"></div>
+      <div class="step-bar-right"></div>
+  </div>
+ 
+</div> -->
+
+<!-- <div class="stepper-bar" id="stepper" *ngFor="let state of orderTrack; index as i">
+  <div style="float:left;display:inline-block;height:50px;"  [ngStyle]="{'width': 'calc(100% /' + state.length + ')'}" [ngClass]="(state.status=='completed' && orderTrack[i+1].status=='in-progress')?'step editing progress':(state.status=='completed' && orderTrack[i+1].status=='completed')?'step editing done':'step inComplete'">
+      <div class="step-circle"><span>{{i+1}}</span></div>
+      <div class="step-title">{{state.name}}</div>
+      <div class="step-date">{{state.date}}</div>
+      <div class="step-bar-left"></div>
+      <div class="step-bar-right"></div>
+  </div>
+</div> -->
+
+<!-- <div class="stepper-bar" id="stepper" >
+  <div [ngClass]="(orderTrack[0].status=='completed' && orderTrack[1].status=='in-progress')?'step editing progress':(orderTrack[0].status=='completed' && orderTrack[1].status=='completed')?'step editing done':'step inComplete'">
+      <div class="step-circle"><span>1</span></div>
+      <div class="step-title">{{orderTrack[0].name}}</div>
+      <div class="step-date">{{orderTrack[0].date}}</div>
+      <div class="step-bar-left"></div>
+      <div class="step-bar-right"></div>
+  </div>
+  <div [ngClass]="(orderTrack[1].status=='completed' && orderTrack[2].status=='in-progress')?'step editing progress':(orderTrack[1].status=='completed' && orderTrack[2].status=='completed')?'step editing done':(orderTrack[1].status=='completed' && orderTrack[2].status=='cancelled'?'step stop':'step cancel')">
+      <div class="step-circle"><span>2</span></div>
+      <div class="step-title">{{orderTrack[1].name}}</div>
+      <div class="step-date">{{orderTrack[1].date}}</div>
+      <div class="step-bar-left"></div>
+      <div class="step-bar-right"></div>
+  </div>
+  <div [ngClass]="orderTrack[2].status=='completed'?'step editing progress':'step inComplete'">
+      <div class="step-circle"><span>3</span></div>
+      <div class="step-title">{{orderTrack[2].name}}</div>
+      <div class="step-date">{{orderTrack[2].date}}</div>
+      <div class="step-bar-left"></div>
+      <div class="step-bar-right"></div>
+  </div>
+ 
+</div> -->
+
+
+{{(orderTrack[0].status=='completed' && orderTrack[1].status=='in-progress')?'step editing progress':(orderTrack[0].status=='completed' && orderTrack[1].status=='completed')?'step editing done':'step inComplete'}}<br>
+{{(orderTrack[1].status=='completed' && orderTrack[2].status=='in-progress')?'step editing progress':(orderTrack[1].status=='completed' && orderTrack[2].status=='completed')?'step editing done':(orderTrack[1].status=='completed' && orderTrack[2].status=='cancelled'?'step stop':'step cancel')}}<br>
+{{orderTrack[2].status=='completed'?'step editing progress':'step inComplete'}}
+
+
+<div *ngFor="let state of orderTrack; index as i">
+  <div style="float:left" [ngClass]="this.classState[i]">
+      <div class="step-circle"><span>{{i+1}}</span></div>
+      <div class="step-title">{{state.name}}</div>
+      <div class="step-date">{{state.date}}</div>
+      <div class="step-bar-left"></div>
+      <div class="step-bar-right"></div>
+  </div>
+</div>
